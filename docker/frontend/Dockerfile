@@ -14,6 +14,11 @@ RUN npm ci --no-audit --no-fund
 COPY client/. .
 # Ajuste se o comando do projeto for diferente (ex: ng build --prod)
 RUN npx ngcc --yes || true
+
+# Enable legacy OpenSSL provider
+ENV NODE_OPTIONS=--openssl-legacy-provider
+RUN npm run build -- --configuration production
+#
 RUN npm run build -- --configuration production
 
 # Production stage: nginx serving static files
