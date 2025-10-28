@@ -37,7 +37,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./docker/frontend/Dockerfile
+          file: ./client/Dockerfile
           push: true
           tags: |
             ${{ env.CLIENT_IMAGE }}:latest
@@ -49,7 +49,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./docker/backend/Dockerfile
+          file: ./backend/Dockerfile
           push: true
           tags: |
             ${{ env.SERVER_IMAGE }}:latest
