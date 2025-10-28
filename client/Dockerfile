@@ -1,11 +1,11 @@
 FROM node:16-alpine AS build
 WORKDIR /app
 
-COPY package*.json ./
+COPY client/package*.json ./
 RUN npm install -g sass
-RUN npm ci 
+RUN npm ci
 
-COPY . .
+COPY client/. .
 RUN npm run build -- --configuration production
 
 FROM nginx:alpine
