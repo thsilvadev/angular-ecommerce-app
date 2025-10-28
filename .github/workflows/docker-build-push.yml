@@ -42,8 +42,9 @@ jobs:
           tags: |
             ${{ env.CLIENT_IMAGE }}:latest
             ${{ env.CLIENT_IMAGE }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.CLIENT_IMAGE }}:latest
-          cache-to: type=inline
+          # cache-from: type=registry,ref=${{ env.CLIENT_IMAGE }}:latest
+          # cache-to: type=inline
+          no-cache: true
 
       - name: Build and push server image
         uses: docker/build-push-action@v5
@@ -54,5 +55,6 @@ jobs:
           tags: |
             ${{ env.SERVER_IMAGE }}:latest
             ${{ env.SERVER_IMAGE }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.SERVER_IMAGE }}:latest
-          cache-to: type=inline
+          # cache-from: type=registry,ref=${{ env.SERVER_IMAGE }}:latest
+          # cache-to: type=inline
+          no-cache: true
