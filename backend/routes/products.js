@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
             c.id = p.cat_id LIMIT ${startValue}, ${limit}`,
     (err, results) => {
       if (err) console.log(err);
-      else res.json(results);
+      else res.json({ ...results, updated: "Vamos tentar, vai que" });
     }
   );
 });
