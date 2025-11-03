@@ -37,7 +37,7 @@ router.get("/:productId", async (req, res) => {
             c.id = p.cat_id WHERE p.id = ${productId}`,
     (err, results) => {
       if (err) console.log(err);
-      else res.json(...results[0], updated: "Yes motherfucker, CICD by Thiagosauro");
+      else res.json({ ...results[0], updated: "Yes motherfucker, CICD by Thiagosauro", updated_again: "Agora é o retorno dos que não foram" });
     }
   );
 });
